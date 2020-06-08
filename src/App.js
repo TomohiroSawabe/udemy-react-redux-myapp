@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 function App() {
   // const greeting = "Hi, Tom!"
@@ -6,7 +7,7 @@ function App() {
   const profiles = [
     {name : "Taro", age : 10},
     {name : "Hanako", age : 5},
-    {}
+    {name : "Jiro", age : 20}
   ];
 
   const dom = (
@@ -32,11 +33,15 @@ const User2 = ((props) => {
   return <div>Hi, I am {props.name}, and {props.age} years old.(Part.2)</div>
 })
 
-User2.defaultProps = {
-  name : "NoName",
-  age : 0
-}
+// User2.defaultProps = {
+//   name : "NoName",
+//   age : 0
+// }
 
+User2.propTypes = {
+  name : PropTypes.string.isRequired,
+  age : PropTypes.number.isRequired
+}
 
 class App2 extends Component {
   render() {
