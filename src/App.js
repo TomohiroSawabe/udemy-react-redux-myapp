@@ -1,56 +1,39 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-function App() {
-  // const greeting = "Hi, Tom!"
-  // const dom = <h1 className="foo">{greeting}</h1>;
-  const profiles = [
-    {name : "Taro", age : 10},
-    {name : "Hanako", age : 5},
-    {name : "Jiro", age : 20}
-  ];
-
-  const dom = (
-    <React.Fragment>
-      {/* <label htmlFor="bar">bar</label>
-      <input type="text" onChange={() => {console.log("Function Component")}}></input> */}
-
-      {
-        profiles.map((profile, index) => {
-          return <User2 name={profile.name} age={profile.age} key={index}/>
-        })
-      }
-    </React.Fragment>
-  )
-  return dom;
-}
-
-function User(props) {
-  return <div>Hi, I am {props.name}, and {props.age} years old.</div>
-}
-
-const User2 = ((props) => {
-  return <div>Hi, I am {props.name}, and {props.age} years old.(Part.2)</div>
-})
-
-// User2.defaultProps = {
-//   name : "NoName",
-//   age : 0
+// function App() {
+//   const dom = (
+//     <Counter></Counter>
+//   );
+//   return dom;
 // }
 
-User2.propTypes = {
-  name : PropTypes.string.isRequired,
-  age : PropTypes.number.isRequired
-}
+const App = () => (<Counter></Counter>);
 
-class App2 extends Component {
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    // console.log(this.state);
+    this.state = {
+      count : 0
+    }
+  }
+
+  handlePlusBtn = () => {
+    this.setState({count : this.state.count + 1});
+  }
+
+  handleMinusBtn = () => {
+    this.setState({count : this.state.count - 1});
+  }
+
   render() {
     return (
-    <React.Fragment>
-      <label htmlFor="bar">bar</label>
-      <input type="text" onChange={() => {console.log("Class Component")}}></input>
-    </React.Fragment>
-    )
+      <React.Fragment>
+        <div>count : {this.state.count}</div>
+        <button onClick={this.handlePlusBtn}>+1</button>
+        <button onClick={this.handleMinusBtn}>-1</button>
+      </React.Fragment>
+    );
   }
 }
 
