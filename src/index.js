@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// Storeを作成するための関数
+import { createStore } from 'redux';
+// 作成したStoreを全Compornentに提供する関数
+import { Provider } from 'react-redux';
+
 import './index.css';
-import App from './App';
+
+// ReducerをImport
+import reducer from './reducers';
+import App from './components/App';
+
 import * as serviceWorker from './serviceWorker';
 
+// Storeの作成
+const store = createStore(reducer);
+
 ReactDOM.render(
-  <React.StrictMode>
+  // ProviderでAppをラップし、store（Reducerの集まり）を渡す
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
