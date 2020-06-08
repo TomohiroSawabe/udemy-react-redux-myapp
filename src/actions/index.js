@@ -2,6 +2,7 @@
 export const INCREMENT = 'INCREMENT'
 export const DECREMENT = 'DECREMENT'
 
+// Actionの定義
 export const increment = () => {
     return {type: INCREMENT}
 }

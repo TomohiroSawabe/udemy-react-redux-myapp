@@ -2,7 +2,7 @@ import { INCREMENT, DECREMENT } from '../actions';
 
 // 状態（state)の初期値をオブジェクトとして定義
 const initialState = {
-    value: 0
+    value: 5
 }
 
 // Count Reducerを関数として定義
